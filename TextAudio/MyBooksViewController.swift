@@ -15,6 +15,7 @@ class MyBooksViewController: UITableViewController {
     
     var pathOfMyBooksPlist = String()
     var booksInfo:NSMutableArray = NSMutableArray()
+    var badgeCount:Int = 0
    
     override func viewDidLoad() {
         
@@ -44,6 +45,13 @@ class MyBooksViewController: UITableViewController {
        
      }
     
+    override func viewDidAppear(_ animated: Bool) {
+        badgeCount = 0
+        tabBarController?.tabBar.items?[0].badgeValue = nil
+    }
+    
+    //list desc sort
+    
     func reverseMyBooksList(_ nsarr : NSMutableArray) -> NSMutableArray
     {
             return NSMutableArray(array: nsarr.reverseObjectEnumerator().allObjects).mutableCopy() as! NSMutableArray
@@ -55,24 +63,39 @@ class MyBooksViewController: UITableViewController {
     func downloadFinishedNotification(_ notification : Notification)
     {
         
+        
+
+        
         let book = notification.object as! Book
         
         print("book title : \(book.title)")
-        print("book preview : \(book.downloadUrl)")
+        print("book type : \(book.downloadUrl)")
         
         print(book)
         
         let tempStr:NSString  = book.downloadUrl as NSString
         let fileName = "\(Util.cacheDir)/\(tempStr.lastPathComponent)"
-        //let fileName =  "\(Util.cacheDir)/\(book.bookId).zip"
         
         unzipFile(fileName)
         deleteFile(fileName)
+        
+        //Plist
         updateBooksInfo(book)
         booksInfo = reverseMyBooksList(booksInfo)
+        
         tableView.reloadData()
+        
+        badgeCount += 1
+        updateBadge()
+        
     }
     
+    
+    func updateBadge()
+    {
+        tabBarController?.tabBar.items?[0].badgeValue = String(badgeCount)
+    }
+
     
     func unzipFile(_ fileName : String)
     {
@@ -98,13 +121,32 @@ class MyBooksViewController: UITableViewController {
     
     func updateBooksInfo(_ book:Book)
     {
-        if book.downloadUrl.range(of:"preview") != nil{
+        if book.downloadUrl.range(of:"preview") != nil
+        {
             book.bookType = "0"
         }
-        else {
+        else
+        {
+            //exsit preview  -> full
+        
             book.bookType = "1"
+   
+            for aBook in booksInfo
+            {
+                let str : String = aBook as! String
+                var strArr = str.characters.split{$0 == ":"}.map(String.init)
+                let bookId = strArr[0]
+                if (bookId == book.bookId) {
+                    booksInfo.remove(aBook)
+                    
+                    let fileName = "\(Util.cacheDir)/\(book.bookId)_preview"
+                    print("fileName : \(fileName)")
+                    
+                    deleteFile(fileName)
+                }
+            }
         }
-
+        
         let delimString = "\(book.bookId):\(book.title):\(book.author):\(book.bookType)"
         
         booksInfo.add(delimString)
@@ -179,7 +221,6 @@ class MyBooksViewController: UITableViewController {
             cell.backgroundColor = UIColor.white
         }
     }
-    
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
