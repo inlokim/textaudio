@@ -15,9 +15,7 @@ class MyBooksCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var bookCover: UIImageView!
     @IBOutlet weak var SampleImageView: UIImageView!
-    @IBOutlet weak var progressView: UIProgressView!
-    @IBOutlet weak var progressLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,11 +26,5 @@ class MyBooksCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    
-    func updateCellForRowAtIndexPath(_ indexPath : IndexPath, downloadModel: MZDownloadModel) {
-        self.progressView.progress = downloadModel.progress
-        
-        let tempVal = Int(downloadModel.progress * 100)
-        self.progressLabel.text = "\(tempVal)/%"
-    }
+
 }

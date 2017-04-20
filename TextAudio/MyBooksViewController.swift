@@ -16,7 +16,9 @@ class MyBooksViewController: UITableViewController {
     var pathOfMyBooksPlist = String()
     var booksInfo:NSMutableArray = NSMutableArray()
     var badgeCount:Int = 0
-   
+    
+    var books:[Book] = []
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -50,6 +52,11 @@ class MyBooksViewController: UITableViewController {
         tabBarController?.tabBar.items?[0].badgeValue = nil
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        badgeCount = 0
+        tabBarController?.tabBar.items?[0].badgeValue = nil
+    }
+    
     //list desc sort
     
     func reverseMyBooksList(_ nsarr : NSMutableArray) -> NSMutableArray
@@ -62,10 +69,7 @@ class MyBooksViewController: UITableViewController {
     
     func downloadFinishedNotification(_ notification : Notification)
     {
-        
-        
 
-        
         let book = notification.object as! Book
         
         print("book title : \(book.title)")
@@ -89,8 +93,7 @@ class MyBooksViewController: UITableViewController {
         updateBadge()
         
     }
-    
-    
+        
     func updateBadge()
     {
         tabBarController?.tabBar.items?[0].badgeValue = String(badgeCount)
@@ -121,23 +124,23 @@ class MyBooksViewController: UITableViewController {
     
     func updateBooksInfo(_ book:Book)
     {
-        if book.downloadUrl.range(of:"preview") != nil
+        if (book.downloadUrl.range(of:"preview") != nil)
         {
             book.bookType = "0"
         }
-        else
+        else if (book.downloadUrl.range(of: "full") != nil)
         {
-            //exsit preview  -> full
+            //preview  -> full
         
             book.bookType = "1"
    
-            for aBook in booksInfo
+            for object in booksInfo
             {
-                let str : String = aBook as! String
+                let str : String = object as! String
                 var strArr = str.characters.split{$0 == ":"}.map(String.init)
                 let bookId = strArr[0]
                 if (bookId == book.bookId) {
-                    booksInfo.remove(aBook)
+                    booksInfo.remove(object)
                     
                     let fileName = "\(Util.cacheDir)/\(book.bookId)_preview"
                     print("fileName : \(fileName)")
@@ -150,7 +153,6 @@ class MyBooksViewController: UITableViewController {
         let delimString = "\(book.bookId):\(book.title):\(book.author):\(book.bookType)"
         
         booksInfo.add(delimString)
-        
         booksInfo.write(toFile: pathOfMyBooksPlist, atomically: true)
     }
    
@@ -179,10 +181,7 @@ class MyBooksViewController: UITableViewController {
         let str : String = booksInfo.object(at: indexPath.row) as! String
         var strArr = str.characters.split{$0 == ":"}.map(String.init)
         
-        //show/hide
-        cell?.progressView.isHidden = true
-        cell?.progressLabel.isHidden = true
-        
+       
         //Title/author
         cell?.titleLabel.text = strArr[1]
         cell?.authorLabel.text = strArr[2]
@@ -205,8 +204,23 @@ class MyBooksViewController: UITableViewController {
         
         //print(Util.cacheDir+"/\(bookId)_\(bookType)/images/iPhoneBack.png")
         
-        cell?.bookCover?.image = UIImage(contentsOfFile: Util.cacheDir+"/\(bookId)_\(bookType)/images/iPhoneBack.png")
-        cell?.bookCover = Util.imageViewBorder(imageView: (cell?.bookCover)!)
+        let homeDir = "\(Util.cacheDir)/\(bookId)_\(bookType)"
+        
+        cell?.bookCover?.image = UIImage(contentsOfFile: "\(homeDir)/images/iPhoneBack.png")
+        cell?.bookCover = Util.imageViewBorder((cell?.bookCover)!)
+
+        
+        let book = Book()
+        book.bookId = bookId
+        book.title = strArr[1]
+        book.author = strArr[2]
+        book.bookCoverView = (cell?.bookCover)!
+        book.homeDir = homeDir
+        
+        //print("book homDir : \(book.homeDir)")
+        
+        books.append(book)
+        
         
         return cell!
     }
@@ -244,9 +258,26 @@ class MyBooksViewController: UITableViewController {
         booksInfo.removeObject(at: (indexPath as NSIndexPath).row)
         booksInfo.write(toFile: pathOfMyBooksPlist, atomically: true)
         self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
-
     }
 
+    
+    //MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "show" {
+            
+            let nav = segue.destination as! UINavigationController
+            if let bookCoverViewController = nav.topViewController as? BookCoverViewController {
+                
+                let indexPath = self.tableView.indexPathForSelectedRow
+                bookCoverViewController.book = self.books[(indexPath?.row)!]
+            }
+        }
+    }
+    
+    
 }
 
 

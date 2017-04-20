@@ -31,6 +31,9 @@
 		7AD57BC51EA5A57000549B02 /* MZDownloadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD57BC31EA5A57000549B02 /* MZDownloadingCell.swift */; };
 		7AD57BC81EA5C21B00549B02 /* SSZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD57BC71EA5C21B00549B02 /* SSZipArchive.framework */; };
 		7AD57BC91EA5C21B00549B02 /* SSZipArchive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD57BC71EA5C21B00549B02 /* SSZipArchive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7AD57BCB1EA85A0F00549B02 /* BookCoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD57BCA1EA85A0F00549B02 /* BookCoverViewController.swift */; };
+		7AD57BCE1EA876E800549B02 /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD57BCD1EA876E800549B02 /* ContentsViewController.swift */; };
+		7AD57BD01EA8921D00549B02 /* ReadBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD57BCF1EA8921D00549B02 /* ReadBookViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		7AD57BC21EA5A57000549B02 /* MZDownloadManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZDownloadManagerViewController.swift; sourceTree = "<group>"; };
 		7AD57BC31EA5A57000549B02 /* MZDownloadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZDownloadingCell.swift; sourceTree = "<group>"; };
 		7AD57BC71EA5C21B00549B02 /* SSZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SSZipArchive.framework; path = frameworks/SSZipArchive.framework; sourceTree = "<group>"; };
+		7AD57BCA1EA85A0F00549B02 /* BookCoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCoverViewController.swift; sourceTree = "<group>"; };
+		7AD57BCD1EA876E800549B02 /* ContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
+		7AD57BCF1EA8921D00549B02 /* ReadBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadBookViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +163,9 @@
 				3140411E1EA0D83900805A88 /* LatestViewController.swift */,
 				314041431EA1BC9700805A88 /* BookInfoViewController.swift */,
 				7AD57B731EA4545000549B02 /* MyBooksViewController.swift */,
+				7AD57BCA1EA85A0F00549B02 /* BookCoverViewController.swift */,
+				7AD57BCD1EA876E800549B02 /* ContentsViewController.swift */,
+				7AD57BCF1EA8921D00549B02 /* ReadBookViewController.swift */,
 				314041201EA0D87500805A88 /* BookTableViewCell.swift */,
 				7AD57B831EA4787900549B02 /* MyBooksCell.swift */,
 				7AD57BC21EA5A57000549B02 /* MZDownloadManagerViewController.swift */,
@@ -305,8 +314,11 @@
 				7AD57B801EA4613E00549B02 /* MZDownloadManager.swift in Sources */,
 				314041441EA1BC9700805A88 /* BookInfoViewController.swift in Sources */,
 				7AD57BC51EA5A57000549B02 /* MZDownloadingCell.swift in Sources */,
+				7AD57BCB1EA85A0F00549B02 /* BookCoverViewController.swift in Sources */,
 				314040FE1EA0D7C300805A88 /* AppDelegate.swift in Sources */,
+				7AD57BD01EA8921D00549B02 /* ReadBookViewController.swift in Sources */,
 				3140411F1EA0D83900805A88 /* LatestViewController.swift in Sources */,
+				7AD57BCE1EA876E800549B02 /* ContentsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

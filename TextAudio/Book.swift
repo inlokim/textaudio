@@ -6,19 +6,21 @@
 //  Copyright © 2017년 highwill. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Book {
     
-    var bookId:String = String()
-    var title:String = String()
-    var author:String = String()
-    var time:String = String()
-    var size:String = String()
-    var preview:String = String()
-    var full:String = String()
-    var content:String = String()
-    var image:String = String()
-    var downloadUrl:String = String()
-    var bookType:String = String()
+    var bookId = String()
+    var title = String()
+    var author = String()
+    var time = String()
+    var size = String()
+    var preview = String()
+    var full = String()
+    var content = String()
+    var image = String()
+    var downloadUrl = String()
+    var bookType = String()
+    var homeDir = String()
+    var bookCoverView = UIImageView()
 }

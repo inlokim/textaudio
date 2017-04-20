@@ -16,7 +16,7 @@ open class Util: NSObject {
         return paths[0]
     }()
     
-    open class func imageViewShadow(imageView:UIImageView) -> UIImageView
+    open class func imageViewShadow(_ imageView:UIImageView) -> UIImageView
     {
         imageView.layer.shadowColor = UIColor.black.cgColor
         imageView.layer.shadowOpacity = 0.6
@@ -27,7 +27,7 @@ open class Util: NSObject {
     }
     
     
-    open class func imageViewBorder(imageView:UIImageView) -> UIImageView
+    open class func imageViewBorder(_ imageView:UIImageView) -> UIImageView
     {
         imageView.layer.borderColor = UIColor.brown.cgColor
         imageView.layer.borderWidth = 0.5

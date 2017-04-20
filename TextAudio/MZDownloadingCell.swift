@@ -28,7 +28,11 @@ class MZDownloadingCell: UITableViewCell {
     
     func updateCellForRowAtIndexPath(_ indexPath : IndexPath, downloadModel: MZDownloadModel) {
         
-        self.lblTitle?.text = "File Title: \(downloadModel.fileName!)"
+        //self.lblTitle?.text = "File Title: \(downloadModel.fileName!)"
+        
+        let book:Book = downloadModel.book as! Book
+        self.lblTitle?.text = book.title
+        
         self.progressDownload?.progress = downloadModel.progress
         
         var remainingTime: String = ""
@@ -64,7 +68,10 @@ class MZDownloadingCell: UITableViewCell {
         }
         
         let detailLabelText = NSMutableString()
-        detailLabelText.appendFormat("File Size: \(fileSize)\nDownloaded: \(downloadedFileSize) (%.2f%%)\nSpeed: \(speed)\nTime Left: \(remainingTime)\nStatus: \(downloadModel.status)" as NSString, downloadModel.progress * 100.0)
+        //detailLabelText.appendFormat("File Size: \(fileSize)\nDownloaded: \(downloadedFileSize) (%.2f%%)\nSpeed: \(speed)\nTime Left: \(remainingTime)\nStatus: \(downloadModel.status)" as NSString, downloadModel.progress * 100.0)
+        
+        detailLabelText.appendFormat("File Size: \(fileSize)\nDownloaded: \(downloadedFileSize) (%.2f%%)\nSpeed: \(speed)\nTime Left: \(remainingTime)" as NSString, downloadModel.progress * 100.0)
+        
         lblDetails?.text = detailLabelText as String
     }
 }

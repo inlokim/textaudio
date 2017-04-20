@@ -175,6 +175,8 @@ class LatestViewController: UITableViewController, XMLParserDelegate {
         let coverUrl :String = "http://inlokim.com/textAudioBooks/images/s_\(book_id).png"
         
         cell?.bookCover.sd_setImage(with: URL(string: coverUrl))
+        cell?.bookCover = Util.imageViewBorder((cell?.bookCover)!)
+                
         return cell!
     }
     
