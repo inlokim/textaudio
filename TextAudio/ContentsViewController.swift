@@ -14,7 +14,7 @@ class ContentsViewController: UITableViewController, XMLParserDelegate {
     var book = Book()
     
     var parser = XMLParser()
-    var posts = NSMutableArray()
+    var contents = NSMutableArray()
     var elements = NSMutableDictionary()
     var element = NSString()
     
@@ -26,9 +26,10 @@ class ContentsViewController: UITableViewController, XMLParserDelegate {
         
         
         super.viewDidLoad()
-       
-        posts = []
         
+        
+       
+        contents = []
         
         let xml = "\(book.homeDir)/audios/list.xml"
         
@@ -40,6 +41,11 @@ class ContentsViewController: UITableViewController, XMLParserDelegate {
         parser.parse()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     
     //XMLParser Methods
     
@@ -68,7 +74,7 @@ class ContentsViewController: UITableViewController, XMLParserDelegate {
             if !contentKey.isEqual(nil) {
                 elements.setObject(contentKey, forKey: "key" as NSCopying)
             }
-            posts.add(elements)
+            contents.add(elements)
         }
     }
     
@@ -85,8 +91,7 @@ class ContentsViewController: UITableViewController, XMLParserDelegate {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        print("posts count : \(posts.count)")
-        return posts.count
+        return contents.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -95,11 +100,11 @@ class ContentsViewController: UITableViewController, XMLParserDelegate {
         let cellIdentifier = "MyCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
-        let content:NSMutableDictionary = posts.object(at: indexPath.row) as! NSMutableDictionary
+        let content:NSMutableDictionary = contents.object(at: indexPath.row) as! NSMutableDictionary
         
         cell.textLabel?.text = content.object(forKey: "title") as! String?
         
-        print("key : \(content.object(forKey: "key"))")
+       // print("key : \(content.object(forKey: "key"))")
             
         //cell?.authorLabel.text = book.author
         
@@ -128,9 +133,12 @@ class ContentsViewController: UITableViewController, XMLParserDelegate {
                 
                 let indexPath = self.tableView.indexPathForSelectedRow
                 //print(" indexPath  "+self.books[(indexPath?.row)!].bookId)
-                //bookInfoViewController.book = self.books[(indexPath?.row)!]
                 
+                //let content:NSMutableDictionary = contents.object(at: indexPath!.row) as! NSMutableDictionary
+
                 readBookViewController.book = book
+                readBookViewController.contentsIndex = indexPath!
+                readBookViewController.contents = contents
             }
         }
     }

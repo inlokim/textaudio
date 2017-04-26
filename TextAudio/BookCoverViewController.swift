@@ -23,7 +23,14 @@ class BookCoverViewController :  UIViewController {
         
         imageView = Util.imageViewBorder(imageView)
         imageView = Util.imageViewShadow(imageView)
+        
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     
     @IBAction func closeButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -38,6 +45,9 @@ class BookCoverViewController :  UIViewController {
         if segue.identifier == "show" {
             //let nav = segue.destination as! UINavigationController
             if let contentsViewController = segue.destination as? ContentsViewController {
+                
+                print("book cover book id : \(book.bookId)")
+                
                 contentsViewController.book = self.book
                 
                 //print("book homDir : \(book.homeDir)")

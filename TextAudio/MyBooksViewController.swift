@@ -25,18 +25,9 @@ class MyBooksViewController: UITableViewController {
     
         print(Util.cacheDir)
         
+        //booksInfo = reverseMyBooksList(booksInfo)
         
-        //Plist
-        
-        pathOfMyBooksPlist = Util.cacheDir+"/myBooks.plist"
-        
-        if NSMutableArray(contentsOfFile: pathOfMyBooksPlist) != nil {
-            booksInfo = NSMutableArray(contentsOfFile: pathOfMyBooksPlist)!
-        }
-        else { booksInfo = NSMutableArray() }
-        
-        
-        booksInfo = reverseMyBooksList(booksInfo)
+        getPlist()
         
         //Download
         NotificationCenter.default.addObserver(
@@ -45,7 +36,7 @@ class MyBooksViewController: UITableViewController {
             name: NSNotification.Name(rawValue: MZUtility.DownloadCompletedNotif as String),
             object: nil)
        
-     }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         badgeCount = 0
@@ -56,6 +47,19 @@ class MyBooksViewController: UITableViewController {
         badgeCount = 0
         tabBarController?.tabBar.items?[0].badgeValue = nil
     }
+    
+    func getPlist()
+    {
+        //Plist
+        
+        pathOfMyBooksPlist = Util.cacheDir+"/myBooks.plist"
+        
+        if NSMutableArray(contentsOfFile: pathOfMyBooksPlist) != nil {
+            booksInfo = NSMutableArray(contentsOfFile: pathOfMyBooksPlist)!
+        }
+        else { booksInfo = NSMutableArray() }
+    }
+    
     
     //list desc sort
     
@@ -84,14 +88,20 @@ class MyBooksViewController: UITableViewController {
         deleteFile(fileName)
         
         //Plist
-        updateBooksInfo(book)
-        booksInfo = reverseMyBooksList(booksInfo)
         
-        tableView.reloadData()
+        //booksInfo = reverseMyBooksList(booksInfo)
+        updateBooksInfo(book)
+        //booksInfo = reverseMyBooksList(booksInfo)
         
         badgeCount += 1
         updateBadge()
         
+        //getPlist()
+        
+        //tableView.reloadData()
+        
+        self.viewDidLoad()
+        self.viewWillAppear(true)
     }
         
     func updateBadge()
@@ -212,8 +222,8 @@ class MyBooksViewController: UITableViewController {
         
         let book = Book()
         book.bookId = bookId
-        book.title = strArr[1]
-        book.author = strArr[2]
+        book.title = (cell?.titleLabel.text)!
+        book.author = (cell?.authorLabel.text)!
         book.bookCoverView = (cell?.bookCover)!
         book.homeDir = homeDir
         
@@ -272,7 +282,12 @@ class MyBooksViewController: UITableViewController {
             if let bookCoverViewController = nav.topViewController as? BookCoverViewController {
                 
                 let indexPath = self.tableView.indexPathForSelectedRow
-                bookCoverViewController.book = self.books[(indexPath?.row)!]
+                let book = self.books[(indexPath?.row)!]
+                
+                print("book id : \(book.bookId)")
+                print("book title : \(book.title)")
+                
+                bookCoverViewController.book = book
             }
         }
     }

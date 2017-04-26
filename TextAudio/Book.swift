@@ -23,4 +23,5 @@ class Book {
     var bookType = String()
     var homeDir = String()
     var bookCoverView = UIImageView()
+    //var contentKey = String()
 }

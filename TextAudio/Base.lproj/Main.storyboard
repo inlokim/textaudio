@@ -94,7 +94,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogY-AK-8jv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1111.2" y="-242.42878560719643"/>
+            <point key="canvasLocation" x="-1183" y="-242"/>
         </scene>
         <!--Book Info View Controller-->
         <scene sceneID="Z9P-F8-V0j">
@@ -445,7 +445,7 @@ Time Left: Calculating...
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7NX-am-3Rx">
-                                <rect key="frame" x="137.5" y="547" width="100" height="30"/>
+                                <rect key="frame" x="138" y="547" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="b9j-MS-qP8"/>
                                     <constraint firstAttribute="width" constant="100" id="hq5-5c-8nv"/>
@@ -506,31 +506,31 @@ Time Left: Calculating...
         <!--Title-->
         <scene sceneID="Laf-ac-4JR">
             <objects>
-                <tableViewController id="SC1-gp-dAp" customClass="ReadBookViewController" customModule="TextAudio" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WlR-Wg-w6f">
+                <tableViewController storyboardIdentifier="Read_View" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SC1-gp-dAp" customClass="ReadBookViewController" customModule="TextAudio" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="102" sectionHeaderHeight="28" sectionFooterHeight="28" id="WlR-Wg-w6f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="200" id="6gW-Je-l0A" customClass="BookTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="25" id="6gW-Je-l0A" customClass="MyBooksCell" customModule="TextAudio" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="25"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6gW-Je-l0A" id="KnZ-hS-EcP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sentence goes here." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwg-XE-aje">
-                                            <rect key="frame" x="20" y="10" width="335" height="180"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sentence goes here." lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwg-XE-aje">
+                                            <rect key="frame" x="10" y="8" width="355" height="9"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="vwg-XE-aje" secondAttribute="trailing" constant="12" id="LsX-fd-aQs"/>
-                                        <constraint firstItem="vwg-XE-aje" firstAttribute="top" secondItem="KnZ-hS-EcP" secondAttribute="topMargin" constant="2" id="PzA-3i-YoE"/>
-                                        <constraint firstItem="vwg-XE-aje" firstAttribute="leading" secondItem="KnZ-hS-EcP" secondAttribute="leadingMargin" constant="12" id="Qnh-2p-KCb"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="vwg-XE-aje" secondAttribute="bottom" constant="2" id="SC9-5W-gta"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="vwg-XE-aje" secondAttribute="trailing" constant="2" id="LsX-fd-aQs"/>
+                                        <constraint firstItem="vwg-XE-aje" firstAttribute="leading" secondItem="KnZ-hS-EcP" secondAttribute="leadingMargin" constant="2" id="Qnh-2p-KCb"/>
+                                        <constraint firstItem="vwg-XE-aje" firstAttribute="top" secondItem="KnZ-hS-EcP" secondAttribute="topMargin" id="jQ6-SL-hNV"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vwg-XE-aje" secondAttribute="bottom" id="uLa-LD-ybn"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -544,18 +544,35 @@ Time Left: Calculating...
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem title="Play" id="dLl-5w-4hj"/>
+                        <barButtonItem title="Play" id="dLl-5w-4hj">
+                            <connections>
+                                <action selector="playSoundAction:" destination="SC1-gp-dAp" id="skg-Ge-IB1"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="AU1-yE-5vP"/>
-                        <barButtonItem title="Prev" id="Cww-WZ-gTM"/>
-                        <barButtonItem title="Next" id="7Kf-6p-h4p"/>
+                        <barButtonItem title="Prev" id="Cww-WZ-gTM">
+                            <connections>
+                                <action selector="prevButton:" destination="SC1-gp-dAp" id="e7m-Hr-Yek"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Next" id="7Kf-6p-h4p">
+                            <connections>
+                                <action selector="nextButton:" destination="SC1-gp-dAp" id="JQh-tj-tNH"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Title" id="hLy-li-oHf"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="nextButton" destination="7Kf-6p-h4p" id="4Te-c3-1cc"/>
+                        <outlet property="playButton" destination="dLl-5w-4hj" id="xEw-aR-M1J"/>
+                        <outlet property="prevButton" destination="Cww-WZ-gTM" id="1Qu-ta-bES"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDK-Xh-xca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3062" y="627"/>
+            <point key="canvasLocation" x="3061.5999999999999" y="626.53673163418296"/>
         </scene>
         <!--Contents-->
         <scene sceneID="9ee-no-il0">
@@ -611,7 +628,7 @@ Time Left: Calculating...
     <resources>
         <image name="BookCover.png" width="193" height="285"/>
         <image name="books-1" width="25" height="25"/>
-        <image name="download" width="27" height="18"/>
+        <image name="download" width="22" height="22"/>
         <image name="open-book" width="25" height="25"/>
         <image name="sample" width="27" height="18"/>
     </resources>

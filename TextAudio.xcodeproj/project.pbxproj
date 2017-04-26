@@ -34,6 +34,7 @@
 		7AD57BCB1EA85A0F00549B02 /* BookCoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD57BCA1EA85A0F00549B02 /* BookCoverViewController.swift */; };
 		7AD57BCE1EA876E800549B02 /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD57BCD1EA876E800549B02 /* ContentsViewController.swift */; };
 		7AD57BD01EA8921D00549B02 /* ReadBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD57BCF1EA8921D00549B02 /* ReadBookViewController.swift */; };
+		7AD57BD31EA9E75000549B02 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD57BD21EA9E75000549B02 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		7AD57BCA1EA85A0F00549B02 /* BookCoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCoverViewController.swift; sourceTree = "<group>"; };
 		7AD57BCD1EA876E800549B02 /* ContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
 		7AD57BCF1EA8921D00549B02 /* ReadBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadBookViewController.swift; sourceTree = "<group>"; };
+		7AD57BD21EA9E75000549B02 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AD57BD31EA9E75000549B02 /* AVFoundation.framework in Frameworks */,
 				3140414D1EA4F0A700805A88 /* libwebp.framework in Frameworks */,
 				7AD57BC81EA5C21B00549B02 /* SSZipArchive.framework in Frameworks */,
 				314041491EA4F09700805A88 /* SDWebImage.framework in Frameworks */,
@@ -179,6 +182,7 @@
 		314041221EA0FBA100805A88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7AD57BD21EA9E75000549B02 /* AVFoundation.framework */,
 				7AD57BC71EA5C21B00549B02 /* SSZipArchive.framework */,
 				3140414C1EA4F0A700805A88 /* libwebp.framework */,
 				314041481EA4F09700805A88 /* SDWebImage.framework */,
