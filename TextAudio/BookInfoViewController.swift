@@ -7,7 +7,7 @@
 //
 import UIKit
 import SDWebImage
-
+import StoreKit
 
 class BookInfoViewController: UIViewController {
 
@@ -29,6 +29,10 @@ class BookInfoViewController: UIViewController {
     @IBOutlet weak var purchaseButton: UIButton!
     @IBOutlet weak var getSampleButton: UIButton!
     
+    
+    var products = [SKProduct]()
+    
+    var product: SKProduct = SKProduct()
     
     var mzDownloadingViewObj    : MZDownloadManagerViewController?
     
@@ -52,10 +56,15 @@ class BookInfoViewController: UIViewController {
         timeLabel.text = "Running Time : \(book.time)"
         contentLabel.text = book.content
         
+        
+        purchaseButton.titleLabel?.text = book.price
+        
         self.setUpDownloadingViewController()
         
         
         //Plist
+        
+        //If Already downloaded and then set buttons hidden
         
         pathOfMyBooksPlist = Util.cacheDir+"/myBooks.plist"
         
@@ -83,8 +92,54 @@ class BookInfoViewController: UIViewController {
                 }
             }
         }
+        
+        //SKProduct
+        
+        products = []
+        
+        // tableView.reloadData()
+        
+        TextAudioProducts.ProductId = "kr.co.highwill.TextAudioBooks.\(book.bookId)"
+        
+        TextAudioProducts.store.requestProducts{success, products in
+            if success
+            {
+                self.products = products!
+                
+                self.product = products![0]
+                
+                Util.priceFormatter.locale = self.product.priceLocale
+                self.purchaseButton.titleLabel?.text = Util.priceFormatter.string(from: self.product.price)
+                
+            /*    if TextAudioProducts.store.isProductPurchased(self.product.productIdentifier)
+                {
+                    self.purchaseButton.titleLabel?.text = "Download"
+                    
+                } else if IAPHelper.canMakePayments() {
+                    
+                } else {
+                    
+                }*/
+            }
+        }
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(BookInfoViewController.handlePurchaseNotification(_:)),
+                                               name:  NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification),
+                                               object: nil)
     }
-
+    
+    
+    override func viewDidLayoutSubviews() {
+        contentLabel.sizeToFit()
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: contentLabel.frame.height + 340)
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     func setUpDownloadingViewController()
     {
         let tabBarTabs : NSArray? = self.tabBarController?.viewControllers as NSArray?
@@ -105,13 +160,33 @@ class BookInfoViewController: UIViewController {
         downloadFile(book.preview)
         getSampleButton.isEnabled = false
     }
-    
-    @IBAction func parchaseAction(_ sender: Any)
-    {
+
+    @IBAction func purchaseAction(_ sender: Any) {
+        
+        if IAPHelper.canMakePayments()
+        {
+            TextAudioProducts.store.buyProduct(product)
+        }
+      
+      /*
         downloadFile(book.full)
         purchaseButton.isEnabled = false
         getSampleButton.isEnabled = false
+      */
     }
+    
+    
+    func handlePurchaseNotification(_ notification: Notification) {
+        guard let productID = notification.object as? String else { return }
+        
+        for (_, product) in products.enumerated() {
+            guard product.productIdentifier == productID else { continue }
+            downloadFile(book.full)
+            purchaseButton.isEnabled = false
+            getSampleButton.isEnabled = false
+        }
+    }
+    
     
     func downloadFile(_ bookurl:String)
     {

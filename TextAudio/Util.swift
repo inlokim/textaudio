@@ -65,4 +65,13 @@ open class Util: NSObject {
     }
     
     
+    static let priceFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        
+        formatter.formatterBehavior = .behavior10_4
+        formatter.numberStyle = .currency
+        
+        return formatter
+    }()
+    
 }

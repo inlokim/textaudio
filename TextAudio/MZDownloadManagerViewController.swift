@@ -73,14 +73,14 @@ extension MZDownloadManagerViewController {
 
 extension MZDownloadManagerViewController {
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+/*    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
         
         let downloadModel = downloadManager.downloadingArray[indexPath.row]
         self.showAppropriateActionController(downloadModel.status)
         
         tableView.deselectRow(at: indexPath, animated: true)
-    }
+    }*/
     
 }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 import SDWebImage
-
+import StoreKit
 
 class LatestViewController: UITableViewController, XMLParserDelegate {
     
@@ -38,6 +38,9 @@ class LatestViewController: UITableViewController, XMLParserDelegate {
     var parser = XMLParser()
     var element = NSString()
     
+    //Purchase
+    var products = [SKProduct]()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -48,7 +51,37 @@ class LatestViewController: UITableViewController, XMLParserDelegate {
         parent?.view.addSubview(actInd)
         
         getDataFromURL()
+        
+        
+/*      
+        //SKProduct
+        
+        products = []
+        
+        for book in books
+        {
+            let productId = "kr.co.highwill.TextAudioBooks.\(book.bookId)"
+            TextAudioProducts.productIdentifiers.insert(productId)
+
+        }
+        
+        print("TextAudioProducts.productIdentifiers.count : \(TextAudioProducts.productIdentifiers.count)")
+        
+        TextAudioProducts.store.requestProducts { success, products in
+            
+            if success
+            {
+                print("success")
+                self.products = products!
+                
+            }
+        }
+ */
+ 
+ 
     }
+    
+
     
     func getDataFromURL()
     {
@@ -57,6 +90,7 @@ class LatestViewController: UITableViewController, XMLParserDelegate {
         parser = XMLParser(contentsOf:(URL(string:baseUrl))!)!
         parser.delegate = self
         parser.parse()
+        
         
         tableView.reloadData()
         self.stopActivity()
@@ -176,6 +210,13 @@ class LatestViewController: UITableViewController, XMLParserDelegate {
         
         cell?.bookCover.sd_setImage(with: URL(string: coverUrl))
         cell?.bookCover = Util.imageViewBorder((cell?.bookCover)!)
+        
+        //product
+        
+       // print("products count : \(products.count)")
+        
+       // let product = products[(indexPath as NSIndexPath).row]
+       // book.price = Util.priceFormatter.string(from: product.price)!
                 
         return cell!
     }
@@ -184,7 +225,7 @@ class LatestViewController: UITableViewController, XMLParserDelegate {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if (indexPath.row % 2) == 0 {
-            cell.backgroundColor = UIColor(colorLiteralRed: 0.99, green: 0.99, blue: 0.99, alpha: 1)
+            cell.backgroundColor = UIColor(colorLiteralRed: 0.95, green: 0.95, blue: 0.95, alpha: 1)
         }
         else {
             cell.backgroundColor = UIColor.white

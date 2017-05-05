@@ -25,9 +25,10 @@ class MyBooksViewController: UITableViewController {
     
         print(Util.cacheDir)
         
-        //booksInfo = reverseMyBooksList(booksInfo)
+        books = []
         
         getPlist()
+        //reverseMyBooksList()
         
         //Download
         NotificationCenter.default.addObserver(
@@ -63,9 +64,12 @@ class MyBooksViewController: UITableViewController {
     
     //list desc sort
     
-    func reverseMyBooksList(_ nsarr : NSMutableArray) -> NSMutableArray
+    //func reverseMyBooksList(_ nsarr : NSMutableArray) -> NSMutableArray
+    func reverseMyBooksList()
     {
-            return NSMutableArray(array: nsarr.reverseObjectEnumerator().allObjects).mutableCopy() as! NSMutableArray
+            //return NSMutableArray(array: nsarr.reverseObjectEnumerator().allObjects).mutableCopy() as! NSMutableArray
+        
+        booksInfo = NSMutableArray(array: booksInfo.reverseObjectEnumerator().allObjects).mutableCopy() as! NSMutableArray
     }
     
     
@@ -89,19 +93,16 @@ class MyBooksViewController: UITableViewController {
         
         //Plist
         
-        //booksInfo = reverseMyBooksList(booksInfo)
         updateBooksInfo(book)
-        //booksInfo = reverseMyBooksList(booksInfo)
         
         badgeCount += 1
         updateBadge()
+        books = []
+        getPlist()
+        tableView.reloadData()
         
-        //getPlist()
-        
-        //tableView.reloadData()
-        
-        self.viewDidLoad()
-        self.viewWillAppear(true)
+        //self.viewDidLoad()
+        //self.viewWillAppear(true)
     }
         
     func updateBadge()
@@ -163,7 +164,10 @@ class MyBooksViewController: UITableViewController {
         let delimString = "\(book.bookId):\(book.title):\(book.author):\(book.bookType)"
         
         booksInfo.add(delimString)
-        booksInfo.write(toFile: pathOfMyBooksPlist, atomically: true)
+        
+        let saveBooksInfo = NSMutableArray(array: booksInfo.reverseObjectEnumerator().allObjects).mutableCopy() as! NSMutableArray
+        
+        saveBooksInfo.write(toFile: pathOfMyBooksPlist, atomically: true)
     }
    
     override func didReceiveMemoryWarning() {
@@ -239,7 +243,7 @@ class MyBooksViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if (indexPath.row % 2) == 0 {
-            cell.backgroundColor = UIColor(colorLiteralRed: 0.99, green: 0.99, blue: 0.99, alpha: 1)
+            cell.backgroundColor = UIColor(colorLiteralRed: 0.95, green: 0.95, blue: 0.95, alpha: 1)
         }
         else {
             cell.backgroundColor = UIColor.white
@@ -268,6 +272,11 @@ class MyBooksViewController: UITableViewController {
         booksInfo.removeObject(at: (indexPath as NSIndexPath).row)
         booksInfo.write(toFile: pathOfMyBooksPlist, atomically: true)
         self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+        
+        books = []
+        getPlist()
+        tableView.reloadData()
+        
     }
 
     
@@ -282,6 +291,9 @@ class MyBooksViewController: UITableViewController {
             if let bookCoverViewController = nav.topViewController as? BookCoverViewController {
                 
                 let indexPath = self.tableView.indexPathForSelectedRow
+                
+                //self.books.reverse()
+                
                 let book = self.books[(indexPath?.row)!]
                 
                 print("book id : \(book.bookId)")

@@ -9,8 +9,8 @@
 import UIKit
 
 
-class ContentsViewController: UITableViewController, XMLParserDelegate {
-
+class ContentsViewController: UITableViewController, XMLParserDelegate
+{
     var book = Book()
     
     var parser = XMLParser()
@@ -21,13 +21,15 @@ class ContentsViewController: UITableViewController, XMLParserDelegate {
     var contentTitle = String()
     var contentKey = String()
    
+    //Plist
+    var bookIndexInfo = NSMutableDictionary()
+    var pathOfContentPlist = String()
+    
+    var currentRow :Int = 0
     
     override func viewDidLoad() {
         
-        
         super.viewDidLoad()
-        
-        
        
         contents = []
         
@@ -40,10 +42,53 @@ class ContentsViewController: UITableViewController, XMLParserDelegate {
         parser.delegate = self
         parser.parse()
         
+
     }
+
+    //Plist
+    
+    func getPlist()
+    {
+        pathOfContentPlist = "\(book.homeDir)/\(book.bookId).plist"
+        
+        print(pathOfContentPlist)
+        
+        if NSMutableDictionary(contentsOfFile: pathOfContentPlist) == nil {
+            
+            bookIndexInfo = NSMutableDictionary()
+        }
+        else
+        {
+            bookIndexInfo = NSMutableDictionary(contentsOfFile: pathOfContentPlist)!
+            currentRow = Int(bookIndexInfo.object(forKey: "currentRow") as! String )!
+        }
+    }
+    
+    func savePlist()
+    {
+        print("savePlist")
+        
+        let currentIndexPath:IndexPath = self.tableView.indexPathForSelectedRow!
+        
+        bookIndexInfo.setObject(String(currentIndexPath.row), forKey: "currentRow" as NSCopying)
+        bookIndexInfo.write(toFile: pathOfContentPlist, atomically: true)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
+        
+        getPlist()
+        
+        print("currentRow =\(currentRow)")
+        
+        let indexPath = IndexPath(row: currentRow, section: 0)
+        tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.top)
+   }
+    
+    override func viewDidDisappear(_ animated: Bool)
+    {
+        savePlist()
     }
     
     
@@ -115,7 +160,7 @@ class ContentsViewController: UITableViewController, XMLParserDelegate {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if (indexPath.row % 2) == 0 {
-            cell.backgroundColor = UIColor(colorLiteralRed: 0.99, green: 0.99, blue: 0.99, alpha: 1)
+            cell.backgroundColor = UIColor(colorLiteralRed: 0.95, green: 0.95, blue: 0.95, alpha: 1)
         }
         else {
             cell.backgroundColor = UIColor.white
