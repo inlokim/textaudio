@@ -502,8 +502,8 @@ Time Left: Calculating...
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YuB-IJ-GaY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jac-Lr-uwR" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jac-Lr-uwR" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xur-YD-Kyb">
                                                 <rect key="frame" x="21" y="40" width="80" height="120"/>
@@ -537,19 +537,19 @@ Time Left: Calculating...
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTn-Ck-JEN">
-                                                <rect key="frame" x="208" y="182" width="89" height="33"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Get Sample"/>
-                                                <connections>
-                                                    <action selector="getSampleAction:" destination="BZv-WV-f3Q" eventType="touchUpInside" id="JBV-Ge-TpV"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiL-Pm-qh3">
-                                                <rect key="frame" x="116" y="182" width="72" height="33"/>
+                                                <rect key="frame" x="167" y="182" width="72" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Purchase"/>
                                                 <connections>
-                                                    <action selector="purchaseAction:" destination="BZv-WV-f3Q" eventType="touchUpInside" id="6uJ-6x-GD6"/>
+                                                    <action selector="purchaseAction:" destination="BZv-WV-f3Q" eventType="touchUpOutside" id="ZSY-Fo-vdg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiL-Pm-qh3">
+                                                <rect key="frame" x="58" y="182" width="89" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Get Sample"/>
+                                                <connections>
+                                                    <action selector="getSampleAction:" destination="BZv-WV-f3Q" eventType="touchUpInside" id="ZQn-TP-Nhk"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvU-et-KWi">
@@ -558,15 +558,25 @@ Time Left: Calculating...
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6A-7q-VaO">
+                                                <rect key="frame" x="259" y="182" width="59" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Restore"/>
+                                                <connections>
+                                                    <action selector="restoreAction:" destination="BZv-WV-f3Q" eventType="touchUpInside" id="POA-i9-E5b"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="LiL-Pm-qh3" firstAttribute="leading" secondItem="Jac-Lr-uwR" secondAttribute="leadingMargin" constant="108" id="3zL-JJ-VMd"/>
+                                            <constraint firstItem="LiL-Pm-qh3" firstAttribute="leading" secondItem="Jac-Lr-uwR" secondAttribute="leadingMargin" constant="50" id="3zL-JJ-VMd"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="wh3-JZ-VUt" secondAttribute="trailing" constant="13" id="8KI-5O-hM2"/>
                                             <constraint firstItem="Xur-YD-Kyb" firstAttribute="top" secondItem="Jac-Lr-uwR" secondAttribute="top" constant="40" id="92M-ru-08j"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="jTi-bs-H9k" secondAttribute="trailing" constant="13" id="CJI-aW-eUH"/>
+                                            <constraint firstItem="K6A-7q-VaO" firstAttribute="top" secondItem="wh3-JZ-VUt" secondAttribute="bottom" constant="15" id="ECL-5N-biy"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="r4c-BD-Drp" secondAttribute="trailing" constant="13" id="Fp6-Hc-KX5"/>
                                             <constraint firstItem="jTi-bs-H9k" firstAttribute="leading" secondItem="Xur-YD-Kyb" secondAttribute="trailing" constant="15" id="J85-W4-6qE"/>
+                                            <constraint firstItem="K6A-7q-VaO" firstAttribute="leading" secondItem="GTn-Ck-JEN" secondAttribute="trailing" constant="20" id="NzK-qz-fNp"/>
                                             <constraint firstItem="wh3-JZ-VUt" firstAttribute="leading" secondItem="Jac-Lr-uwR" secondAttribute="leadingMargin" constant="108" id="QVA-qs-i2V"/>
                                             <constraint firstItem="jTi-bs-H9k" firstAttribute="top" secondItem="3gF-NG-Cxi" secondAttribute="bottom" constant="5" id="RXB-b3-6Dh"/>
                                             <constraint firstItem="wh3-JZ-VUt" firstAttribute="top" secondItem="r4c-BD-Drp" secondAttribute="bottom" constant="5" id="YdX-3v-WzB"/>
@@ -606,9 +616,10 @@ Time Left: Calculating...
                     <connections>
                         <outlet property="authorLabel" destination="3gF-NG-Cxi" id="Bck-Gx-dAl"/>
                         <outlet property="contentLabel" destination="gvU-et-KWi" id="wQW-jD-EVo"/>
-                        <outlet property="getSampleButton" destination="GTn-Ck-JEN" id="QK4-rP-Hgb"/>
+                        <outlet property="getSampleButton" destination="LiL-Pm-qh3" id="dr3-Ac-kKb"/>
                         <outlet property="imageView" destination="Xur-YD-Kyb" id="xKm-9v-YeG"/>
-                        <outlet property="purchaseButton" destination="LiL-Pm-qh3" id="hjc-hz-qas"/>
+                        <outlet property="purchaseButton" destination="GTn-Ck-JEN" id="WbD-6M-36Q"/>
+                        <outlet property="restoreButton" destination="K6A-7q-VaO" id="LCQ-9F-STr"/>
                         <outlet property="scrollView" destination="YuB-IJ-GaY" id="6lN-D1-oYN"/>
                         <outlet property="sizeLabel" destination="r4c-BD-Drp" id="EBD-Sh-6WF"/>
                         <outlet property="timeLabel" destination="wh3-JZ-VUt" id="x6l-y5-U1n"/>

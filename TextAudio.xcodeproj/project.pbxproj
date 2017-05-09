@@ -48,7 +48,6 @@
 		317593011EBD58830055CFC3 /* libwebp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 317592FF1EBD58830055CFC3 /* libwebp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		317593031EBD5E6B0055CFC3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 317593021EBD5E6B0055CFC3 /* libz.tbd */; };
 		31A0D0BE1EC1635D007C7B1E /* TextAudioBooksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A0D0BD1EC1635D007C7B1E /* TextAudioBooksTests.swift */; };
-		31A0D0C51EC1636B007C7B1E /* SSZipArchive+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3FFC5E1EC00FDC00175F32 /* SSZipArchive+Swift.swift */; };
 		7A3FFC631EC00FDC00175F32 /* aescrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = 7A3FFC401EC00FDC00175F32 /* aescrypt.c */; };
 		7A3FFC641EC00FDC00175F32 /* aeskey.c in Sources */ = {isa = PBXBuildFile; fileRef = 7A3FFC411EC00FDC00175F32 /* aeskey.c */; };
 		7A3FFC651EC00FDC00175F32 /* aestab.c in Sources */ = {isa = PBXBuildFile; fileRef = 7A3FFC431EC00FDC00175F32 /* aestab.c */; };
@@ -63,7 +62,6 @@
 		7A3FFC6E1EC00FDC00175F32 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 7A3FFC581EC00FDC00175F32 /* mztools.c */; };
 		7A3FFC6F1EC00FDC00175F32 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 7A3FFC5A1EC00FDC00175F32 /* unzip.c */; };
 		7A3FFC701EC00FDC00175F32 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 7A3FFC5C1EC00FDC00175F32 /* zip.c */; };
-		7A3FFC711EC00FDC00175F32 /* SSZipArchive+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3FFC5E1EC00FDC00175F32 /* SSZipArchive+Swift.swift */; };
 		7A3FFC721EC00FDC00175F32 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3FFC601EC00FDC00175F32 /* SSZipArchive.m */; };
 		7AD57B741EA4545000549B02 /* MyBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD57B731EA4545000549B02 /* MyBooksViewController.swift */; };
 		7AD57B801EA4613E00549B02 /* MZDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD57B7D1EA4613E00549B02 /* MZDownloadManager.swift */; };
@@ -206,7 +204,6 @@
 		7A3FFC5B1EC00FDC00175F32 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
 		7A3FFC5C1EC00FDC00175F32 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
 		7A3FFC5D1EC00FDC00175F32 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
-		7A3FFC5E1EC00FDC00175F32 /* SSZipArchive+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SSZipArchive+Swift.swift"; sourceTree = "<group>"; };
 		7A3FFC5F1EC00FDC00175F32 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		7A3FFC601EC00FDC00175F32 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		7A3FFC611EC00FDC00175F32 /* SSZipCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipCommon.h; sourceTree = "<group>"; };
@@ -415,7 +412,6 @@
 				7A3FFC3D1EC00FDC00175F32 /* aes */,
 				7A3FFC531EC00FDC00175F32 /* Info.plist */,
 				7A3FFC541EC00FDC00175F32 /* minizip */,
-				7A3FFC5E1EC00FDC00175F32 /* SSZipArchive+Swift.swift */,
 				7A3FFC5F1EC00FDC00175F32 /* SSZipArchive.h */,
 				7A3FFC601EC00FDC00175F32 /* SSZipArchive.m */,
 				7A3FFC611EC00FDC00175F32 /* SSZipCommon.h */,
@@ -631,7 +627,6 @@
 				317592FD1EBD56450055CFC3 /* FLAnimatedImageView.m in Sources */,
 				317592ED1EBD56090055CFC3 /* SDWebImagePrefetcher.m in Sources */,
 				7A3FFC661EC00FDC00175F32 /* entropy.c in Sources */,
-				7A3FFC711EC00FDC00175F32 /* SSZipArchive+Swift.swift in Sources */,
 				7A3FFC651EC00FDC00175F32 /* aestab.c in Sources */,
 				317592F11EBD56090055CFC3 /* UIImage+WebP.m in Sources */,
 				317592EC1EBD56090055CFC3 /* SDWebImageManager.m in Sources */,
@@ -654,7 +649,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31A0D0C51EC1636B007C7B1E /* SSZipArchive+Swift.swift in Sources */,
 				31A0D0BE1EC1635D007C7B1E /* TextAudioBooksTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -28,7 +28,7 @@ class BookInfoViewController: UIViewController {
     
     @IBOutlet weak var purchaseButton: UIButton!
     @IBOutlet weak var getSampleButton: UIButton!
-    
+    @IBOutlet weak var restoreButton: UIButton!
     
     var products = [SKProduct]()
     
@@ -175,6 +175,13 @@ class BookInfoViewController: UIViewController {
       */
     }
     
+    @IBAction func restoreAction(_ sender: Any) {
+        
+        if IAPHelper.canMakePayments()
+        {
+            TextAudioProducts.store.restorePurchases()
+        }
+    }
     
     func handlePurchaseNotification(_ notification: Notification) {
         guard let productID = notification.object as? String else { return }
