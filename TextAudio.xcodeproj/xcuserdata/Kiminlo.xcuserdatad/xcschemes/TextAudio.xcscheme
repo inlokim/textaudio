@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "314040F91EA0D7C300805A88"
-               BuildableName = "TextAudio.app"
-               BlueprintName = "TextAudio"
+               BuildableName = "TextAudioBooks.app"
+               BlueprintName = "TextAudioBooks"
                ReferencedContainer = "container:TextAudio.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "314040F91EA0D7C300805A88"
-            BuildableName = "TextAudio.app"
-            BlueprintName = "TextAudio"
+            BuildableName = "TextAudioBooks.app"
+            BlueprintName = "TextAudioBooks"
             ReferencedContainer = "container:TextAudio.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,8 +66,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "314040F91EA0D7C300805A88"
-            BuildableName = "TextAudio.app"
-            BlueprintName = "TextAudio"
+            BuildableName = "TextAudioBooks.app"
+            BlueprintName = "TextAudioBooks"
             ReferencedContainer = "container:TextAudio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -85,8 +85,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "314040F91EA0D7C300805A88"
-            BuildableName = "TextAudio.app"
-            BlueprintName = "TextAudio"
+            BuildableName = "TextAudioBooks.app"
+            BlueprintName = "TextAudioBooks"
             ReferencedContainer = "container:TextAudio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
