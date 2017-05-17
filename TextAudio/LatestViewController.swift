@@ -50,10 +50,10 @@ class LatestViewController: UITableViewController, XMLParserDelegate {
         actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         parent?.view.addSubview(actInd)
         
+        runActivity()
+        
         getDataFromURL()
         
-        
-/*      
         //SKProduct
         
         products = []
@@ -62,10 +62,7 @@ class LatestViewController: UITableViewController, XMLParserDelegate {
         {
             let productId = "kr.co.highwill.TextAudioBooks.\(book.bookId)"
             TextAudioProducts.productIdentifiers.insert(productId)
-
         }
-        
-        print("TextAudioProducts.productIdentifiers.count : \(TextAudioProducts.productIdentifiers.count)")
         
         TextAudioProducts.store.requestProducts { success, products in
             
@@ -74,18 +71,14 @@ class LatestViewController: UITableViewController, XMLParserDelegate {
                 print("success")
                 self.products = products!
                 
+                self.stopActivity()
             }
         }
- */
- 
- 
     }
     
-
     
     func getDataFromURL()
     {
-        self.runActivity()
 
         parser = XMLParser(contentsOf:(URL(string:baseUrl))!)!
         parser.delegate = self
@@ -93,7 +86,7 @@ class LatestViewController: UITableViewController, XMLParserDelegate {
         
         
         tableView.reloadData()
-        self.stopActivity()
+
     }
     
     
@@ -243,7 +236,27 @@ class LatestViewController: UITableViewController, XMLParserDelegate {
                 
                 let indexPath = self.tableView.indexPathForSelectedRow
                 //print(" indexPath  "+self.books[(indexPath?.row)!].bookId)
-                bookInfoViewController.book = self.books[(indexPath?.row)!]
+                
+                let book = self.books[(indexPath?.row)!]
+                
+                let productId = "kr.co.highwill.TextAudioBooks.\(book.bookId)"
+                
+                for product in products {
+                    if (product.productIdentifier == productId)
+                    {
+                        print("product.productIdentifier : \(product.productIdentifier)")
+                        
+                        Util.priceFormatter.locale = product.priceLocale
+                        
+                        print("product price : "+Util.priceFormatter.string(from: product.price)!)
+                        
+                        book.price = Util.priceFormatter.string(from: product.price)!
+                        
+                        bookInfoViewController.product = product
+                    }
+                }
+                
+                bookInfoViewController.book = book
             }
         }
     }

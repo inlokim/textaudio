@@ -26,7 +26,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookCover.png" translatesAutoresizingMaskIntoConstraints="NO" id="CMb-hb-9uX">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CMb-hb-9uX">
                                             <rect key="frame" x="5" y="5" width="50" height="75"/>
                                             <color key="backgroundColor" red="0.88146457320000005" green="0.87832017250000005" blue="0.91578209919999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -537,15 +537,15 @@ Time Left: Calculating...
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTn-Ck-JEN">
-                                                <rect key="frame" x="167" y="182" width="72" height="33"/>
+                                                <rect key="frame" x="140" y="182" width="72" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Purchase"/>
                                                 <connections>
-                                                    <action selector="purchaseAction:" destination="BZv-WV-f3Q" eventType="touchUpOutside" id="ZSY-Fo-vdg"/>
+                                                    <action selector="purchaseAction:" destination="BZv-WV-f3Q" eventType="touchUpInside" id="GOQ-is-PLZ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiL-Pm-qh3">
-                                                <rect key="frame" x="58" y="182" width="89" height="33"/>
+                                                <rect key="frame" x="21" y="182" width="89" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Get Sample"/>
                                                 <connections>
@@ -553,13 +553,13 @@ Time Left: Calculating...
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvU-et-KWi">
-                                                <rect key="frame" x="21" y="235" width="333" height="20"/>
+                                                <rect key="frame" x="21" y="230" width="333" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6A-7q-VaO">
-                                                <rect key="frame" x="259" y="182" width="59" height="33"/>
+                                                <rect key="frame" x="242" y="182" width="59" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Restore"/>
                                                 <connections>
@@ -569,26 +569,26 @@ Time Left: Calculating...
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="LiL-Pm-qh3" firstAttribute="leading" secondItem="Jac-Lr-uwR" secondAttribute="leadingMargin" constant="50" id="3zL-JJ-VMd"/>
+                                            <constraint firstItem="LiL-Pm-qh3" firstAttribute="leading" secondItem="Jac-Lr-uwR" secondAttribute="leadingMargin" constant="13" id="3zL-JJ-VMd"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="wh3-JZ-VUt" secondAttribute="trailing" constant="13" id="8KI-5O-hM2"/>
                                             <constraint firstItem="Xur-YD-Kyb" firstAttribute="top" secondItem="Jac-Lr-uwR" secondAttribute="top" constant="40" id="92M-ru-08j"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="jTi-bs-H9k" secondAttribute="trailing" constant="13" id="CJI-aW-eUH"/>
                                             <constraint firstItem="K6A-7q-VaO" firstAttribute="top" secondItem="wh3-JZ-VUt" secondAttribute="bottom" constant="15" id="ECL-5N-biy"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="r4c-BD-Drp" secondAttribute="trailing" constant="13" id="Fp6-Hc-KX5"/>
                                             <constraint firstItem="jTi-bs-H9k" firstAttribute="leading" secondItem="Xur-YD-Kyb" secondAttribute="trailing" constant="15" id="J85-W4-6qE"/>
-                                            <constraint firstItem="K6A-7q-VaO" firstAttribute="leading" secondItem="GTn-Ck-JEN" secondAttribute="trailing" constant="20" id="NzK-qz-fNp"/>
+                                            <constraint firstItem="K6A-7q-VaO" firstAttribute="leading" secondItem="GTn-Ck-JEN" secondAttribute="trailing" constant="30" id="NzK-qz-fNp"/>
                                             <constraint firstItem="wh3-JZ-VUt" firstAttribute="leading" secondItem="Jac-Lr-uwR" secondAttribute="leadingMargin" constant="108" id="QVA-qs-i2V"/>
                                             <constraint firstItem="jTi-bs-H9k" firstAttribute="top" secondItem="3gF-NG-Cxi" secondAttribute="bottom" constant="5" id="RXB-b3-6Dh"/>
                                             <constraint firstItem="wh3-JZ-VUt" firstAttribute="top" secondItem="r4c-BD-Drp" secondAttribute="bottom" constant="5" id="YdX-3v-WzB"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="3gF-NG-Cxi" secondAttribute="trailing" constant="13" id="ZzB-Xm-abj"/>
                                             <constraint firstItem="LiL-Pm-qh3" firstAttribute="top" secondItem="wh3-JZ-VUt" secondAttribute="bottom" constant="15" id="b2U-Gt-grC"/>
                                             <constraint firstItem="r4c-BD-Drp" firstAttribute="top" secondItem="jTi-bs-H9k" secondAttribute="bottom" constant="30" id="cJm-OQ-BTZ"/>
-                                            <constraint firstItem="gvU-et-KWi" firstAttribute="top" secondItem="LiL-Pm-qh3" secondAttribute="bottom" constant="20" id="cVa-Vk-EjQ"/>
+                                            <constraint firstItem="gvU-et-KWi" firstAttribute="top" secondItem="LiL-Pm-qh3" secondAttribute="bottom" constant="15" id="cVa-Vk-EjQ"/>
                                             <constraint firstItem="r4c-BD-Drp" firstAttribute="leading" secondItem="Xur-YD-Kyb" secondAttribute="trailing" constant="15" id="di5-Dm-SEd"/>
                                             <constraint firstItem="3gF-NG-Cxi" firstAttribute="leading" secondItem="Xur-YD-Kyb" secondAttribute="trailing" constant="15" id="g6J-xF-1xJ"/>
                                             <constraint firstItem="gvU-et-KWi" firstAttribute="leading" secondItem="Jac-Lr-uwR" secondAttribute="leadingMargin" constant="13" id="jRL-sn-Kf3"/>
                                             <constraint firstItem="3gF-NG-Cxi" firstAttribute="top" secondItem="Jac-Lr-uwR" secondAttribute="top" constant="40" id="kg0-sH-N9N"/>
-                                            <constraint firstItem="GTn-Ck-JEN" firstAttribute="leading" secondItem="LiL-Pm-qh3" secondAttribute="trailing" constant="20" id="kuZ-bN-Ubt"/>
+                                            <constraint firstItem="GTn-Ck-JEN" firstAttribute="leading" secondItem="LiL-Pm-qh3" secondAttribute="trailing" constant="30" id="kuZ-bN-Ubt"/>
                                             <constraint firstItem="Xur-YD-Kyb" firstAttribute="leading" secondItem="Jac-Lr-uwR" secondAttribute="leadingMargin" constant="13" id="qGU-zZ-5z2"/>
                                             <constraint firstItem="GTn-Ck-JEN" firstAttribute="top" secondItem="wh3-JZ-VUt" secondAttribute="bottom" constant="15" id="sYK-Fu-XKC"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="gvU-et-KWi" secondAttribute="trailing" constant="13" id="siB-4A-mIc"/>
@@ -632,7 +632,6 @@ Time Left: Calculating...
         </scene>
     </scenes>
     <resources>
-        <image name="BookCover.png" width="193" height="285"/>
         <image name="books-1" width="25" height="25"/>
         <image name="download" width="22" height="22"/>
         <image name="open-book" width="25" height="25"/>

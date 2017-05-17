@@ -252,7 +252,7 @@ class ReadBookViewController: UITableViewController, XMLParserDelegate, AVAudioP
    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        print("texts.count : \(texts.count)")
+        //print("texts.count : \(texts.count)")
         return texts.count
     }
     
@@ -262,7 +262,7 @@ class ReadBookViewController: UITableViewController, XMLParserDelegate, AVAudioP
         let cellIdentifier = "MyCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MyBooksCell
         
-        print("indexPath.row : \(indexPath.row)")
+        //print("indexPath.row : \(indexPath.row)")
         
         let content:NSMutableDictionary = texts.object(at: indexPath.row) as! NSMutableDictionary
         

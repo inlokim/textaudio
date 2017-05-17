@@ -31,7 +31,6 @@ class BookInfoViewController: UIViewController {
     @IBOutlet weak var restoreButton: UIButton!
     
     var products = [SKProduct]()
-    
     var product: SKProduct = SKProduct()
     
     var mzDownloadingViewObj    : MZDownloadManagerViewController?
@@ -46,7 +45,18 @@ class BookInfoViewController: UIViewController {
         
         authorLabel.text = book.author
         titleLabel.text = book.title
-
+        
+        print("book price : \(book.price)")
+        
+        if (book.price.isEmpty) {
+            purchaseButton.isHidden = true
+            restoreButton.isHidden = true
+        }
+        else
+        {
+            purchaseButton.setTitle(book.price, for: .normal)
+        }
+        
         let coverUrl :String = "http://inlokim.com/textAudioBooks/images/s_\(book.bookId).png"
         imageView.sd_setImage(with: URL(string: coverUrl))
         imageView = Util.imageViewBorder(imageView)
@@ -57,7 +67,10 @@ class BookInfoViewController: UIViewController {
         contentLabel.text = book.content
         
         
-        purchaseButton.titleLabel?.text = book.price
+        //Util.priceFormatter.locale = product.priceLocale
+        //purchaseButton.titleLabel?.text = Util.priceFormatter.string(from: product.price)
+        
+        
         
         self.setUpDownloadingViewController()
         
@@ -89,6 +102,7 @@ class BookInfoViewController: UIViewController {
                 {
                     getSampleButton.isHidden = true
                     purchaseButton.isHidden = true
+                    restoreButton.isHidden = true
                 }
             }
         }
@@ -99,34 +113,26 @@ class BookInfoViewController: UIViewController {
         
         // tableView.reloadData()
         
-        TextAudioProducts.ProductId = "kr.co.highwill.TextAudioBooks.\(book.bookId)"
+        //TextAudioProducts.ProductId = "kr.co.highwill.TextAudioBooks.\(book.bookId)"
         
-        TextAudioProducts.store.requestProducts{success, products in
+       /* TextAudioProducts.store.requestProducts{success, products in
+ 
             if success
             {
                 self.products = products!
-                
                 self.product = products![0]
                 
                 Util.priceFormatter.locale = self.product.priceLocale
                 self.purchaseButton.titleLabel?.text = Util.priceFormatter.string(from: self.product.price)
-                
-            /*    if TextAudioProducts.store.isProductPurchased(self.product.productIdentifier)
-                {
-                    self.purchaseButton.titleLabel?.text = "Download"
-                    
-                } else if IAPHelper.canMakePayments() {
-                    
-                } else {
-                    
-                }*/
             }
         }
-        
+        */
         
         NotificationCenter.default.addObserver(self, selector: #selector(BookInfoViewController.handlePurchaseNotification(_:)),
                                                name:  NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification),
                                                object: nil)
+        
+      
     }
     
     
@@ -163,6 +169,8 @@ class BookInfoViewController: UIViewController {
 
     @IBAction func purchaseAction(_ sender: Any) {
         
+        print("purchaseAction")
+        
         if IAPHelper.canMakePayments()
         {
             TextAudioProducts.store.buyProduct(product)
@@ -184,13 +192,27 @@ class BookInfoViewController: UIViewController {
     }
     
     func handlePurchaseNotification(_ notification: Notification) {
-        guard let productID = notification.object as? String else { return }
+       guard let productID = notification.object as? String else { return }
         
-        for (_, product) in products.enumerated() {
-            guard product.productIdentifier == productID else { continue }
+       print("product.productIdentifier : \(product.productIdentifier)")
+        
+      /* for (_, product) in products.enumerated() {
+        
+        print("dd")
+        guard product.productIdentifier == productID else { continue }
+            
             downloadFile(book.full)
             purchaseButton.isEnabled = false
             getSampleButton.isEnabled = false
+            restoreButton.isEnabled = false
+        }*/
+        
+        if (productID == product.productIdentifier)
+        {
+            downloadFile(book.full)
+            purchaseButton.isEnabled = false
+            getSampleButton.isEnabled = false
+            restoreButton.isEnabled = false
         }
     }
     

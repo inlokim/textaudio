@@ -12,9 +12,9 @@ public struct TextAudioProducts {
     
     //public static let Highwill = "kr.co.highwill.TextAudioBooks"
     
-    public static var ProductId:String = String()
+    //public static var ProductId:String = String()
     
-    fileprivate static let productIdentifiers: Set<ProductIdentifier> = [TextAudioProducts.ProductId]
+    public static var productIdentifiers: Set<ProductIdentifier> = []
     
    //public static var productIdentifiers: Set<ProductIdentifier> = Set<ProductIdentifier>()
     

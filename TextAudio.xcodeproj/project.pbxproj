@@ -13,14 +13,9 @@
 		314041081EA0D7C300805A88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 314041061EA0D7C300805A88 /* LaunchScreen.storyboard */; };
 		3140411F1EA0D83900805A88 /* LatestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3140411E1EA0D83900805A88 /* LatestViewController.swift */; };
 		314041211EA0D87500805A88 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314041201EA0D87500805A88 /* BookTableViewCell.swift */; };
-		3140412C1EA109B400805A88 /* BookCover.png in Resources */ = {isa = PBXBuildFile; fileRef = 3140412B1EA109B400805A88 /* BookCover.png */; };
 		3140412E1EA10A1F00805A88 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3140412D1EA10A1F00805A88 /* Util.swift */; };
 		314041441EA1BC9700805A88 /* BookInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314041431EA1BC9700805A88 /* BookInfoViewController.swift */; };
 		314041461EA251C100805A88 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314041451EA251C100805A88 /* Book.swift */; };
-		317592AC1EBD47B70055CFC3 /* SSZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 317592AA1EBD479C0055CFC3 /* SSZipArchive.framework */; };
-		317592AD1EBD47B70055CFC3 /* SSZipArchive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 317592AA1EBD479C0055CFC3 /* SSZipArchive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		317592B51EBD4D840055CFC3 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 317592B41EBD4D840055CFC3 /* SDWebImage.framework */; };
-		317592B61EBD4D840055CFC3 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 317592B41EBD4D840055CFC3 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		317592E21EBD56090055CFC3 /* FLAnimatedImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 317592BA1EBD56090055CFC3 /* FLAnimatedImageView+WebCache.m */; };
 		317592E31EBD56090055CFC3 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 317592BC1EBD56090055CFC3 /* MKAnnotationView+WebCache.m */; };
 		317592E41EBD56090055CFC3 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 317592BE1EBD56090055CFC3 /* NSData+ImageContentType.m */; };
@@ -44,8 +39,6 @@
 		317592FC1EBD56450055CFC3 /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 317592F81EBD56450055CFC3 /* FLAnimatedImage.m */; };
 		317592FD1EBD56450055CFC3 /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 317592FA1EBD56450055CFC3 /* FLAnimatedImageView.m */; };
 		317592FE1EBD56450055CFC3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 317592FB1EBD56450055CFC3 /* Info.plist */; };
-		317593001EBD58830055CFC3 /* libwebp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 317592FF1EBD58830055CFC3 /* libwebp.framework */; };
-		317593011EBD58830055CFC3 /* libwebp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 317592FF1EBD58830055CFC3 /* libwebp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		317593031EBD5E6B0055CFC3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 317593021EBD5E6B0055CFC3 /* libz.tbd */; };
 		31A0D0BE1EC1635D007C7B1E /* TextAudioBooksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A0D0BD1EC1635D007C7B1E /* TextAudioBooksTests.swift */; };
 		7A3FFC631EC00FDC00175F32 /* aescrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = 7A3FFC401EC00FDC00175F32 /* aescrypt.c */; };
@@ -89,22 +82,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		317592AE1EBD47B70055CFC3 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				317593011EBD58830055CFC3 /* libwebp.framework in Embed Frameworks */,
-				317592B61EBD4D840055CFC3 /* SDWebImage.framework in Embed Frameworks */,
-				317592AD1EBD47B70055CFC3 /* SSZipArchive.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		314040FA1EA0D7C300805A88 /* TextAudioBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextAudioBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		314040FD1EA0D7C300805A88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,7 +93,6 @@
 		314041141EA0D7C400805A88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3140411E1EA0D83900805A88 /* LatestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestViewController.swift; sourceTree = "<group>"; };
 		314041201EA0D87500805A88 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
-		3140412B1EA109B400805A88 /* BookCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BookCover.png; sourceTree = "<group>"; };
 		3140412D1EA10A1F00805A88 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		314041431EA1BC9700805A88 /* BookInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookInfoViewController.swift; sourceTree = "<group>"; };
 		314041451EA251C100805A88 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -230,9 +206,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				317593031EBD5E6B0055CFC3 /* libz.tbd in Frameworks */,
-				317593001EBD58830055CFC3 /* libwebp.framework in Frameworks */,
-				317592B51EBD4D840055CFC3 /* SDWebImage.framework in Frameworks */,
-				317592AC1EBD47B70055CFC3 /* SSZipArchive.framework in Frameworks */,
 				7AD57BD31EA9E75000549B02 /* AVFoundation.framework in Frameworks */,
 				7AD57BD51EB2FE8D00549B02 /* StoreKit.framework in Frameworks */,
 			);
@@ -275,7 +248,6 @@
 		314040FC1EA0D7C300805A88 /* TextAudio */ = {
 			isa = PBXGroup;
 			children = (
-				3140412B1EA109B400805A88 /* BookCover.png */,
 				3140411D1EA0D81E00805A88 /* iPhone */,
 				314040FD1EA0D7C300805A88 /* AppDelegate.swift */,
 				314041041EA0D7C300805A88 /* Assets.xcassets */,
@@ -484,7 +456,6 @@
 				314040F61EA0D7C300805A88 /* Sources */,
 				314040F71EA0D7C300805A88 /* Frameworks */,
 				314040F81EA0D7C300805A88 /* Resources */,
-				317592AE1EBD47B70055CFC3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -568,7 +539,6 @@
 				314041081EA0D7C300805A88 /* LaunchScreen.storyboard in Resources */,
 				314041051EA0D7C300805A88 /* Assets.xcassets in Resources */,
 				7A3FFC6C1EC00FDC00175F32 /* Info.plist in Resources */,
-				3140412C1EA109B400805A88 /* BookCover.png in Resources */,
 				317592FE1EBD56450055CFC3 /* Info.plist in Resources */,
 				314041031EA0D7C300805A88 /* Main.storyboard in Resources */,
 			);
@@ -780,7 +750,6 @@
 		314041181EA0D7C400805A88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JN4U23SWSX;
 				ENABLE_BITCODE = NO;
@@ -803,7 +772,6 @@
 		314041191EA0D7C400805A88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JN4U23SWSX;
 				ENABLE_BITCODE = NO;
@@ -886,6 +854,7 @@
 				31A0D0C31EC1635E007C7B1E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
